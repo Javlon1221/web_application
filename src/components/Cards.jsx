@@ -19,15 +19,25 @@ const App = () => {
     setVisibleCount((prev) => prev + 8);
   };
 
+  // 🧱 Skeleton komponenti
+  const SkeletonCard = () => (
+    <div className="bg-white rounded-2xl shadow-md p-4 animate-pulse">
+      <div className="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4"></div>
+      <div className="h-5 bg-gray-300 rounded w-3/4 mx-auto mb-2"></div>
+      <div className="h-4 bg-gray-200 rounded w-5/6 mx-auto mb-2"></div>
+      <div className="h-3 bg-gray-100 rounded w-2/3 mx-auto"></div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center mb-8">Foydalanuvchilar</h1>
+
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-          <div className="text-center text-xl font-semibold text-blue-600">
-            Yuklanmoqda...
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {[...Array(visibleCount)].map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
         </div>
       ) : (
         <>
@@ -40,7 +50,7 @@ const App = () => {
                 <img
                   src={user.image}
                   alt={user.firstName}
-                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h2 className="text-xl font-semibold text-center">
                   {user.firstName} {user.lastName}
