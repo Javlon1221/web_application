@@ -19,7 +19,6 @@ const App = () => {
     setVisibleCount((prev) => prev + 8);
   };
 
-  // 🧱 Skeleton komponenti
   const SkeletonCard = () => (
     <div className="bg-white rounded-2xl shadow-md p-4 animate-pulse">
       <div className="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4"></div>
@@ -63,7 +62,6 @@ const App = () => {
             ))}
           </div>
 
-          {/* Sea More tugmasi: agar hali ham ko'rsatilmagan userlar bo'lsa */}
           {visibleCount < users.length && (
             <div className="flex justify-center mt-8">
               <button

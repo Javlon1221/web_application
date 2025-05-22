@@ -86,7 +86,6 @@ const UserCarousel = () => {
 
       {!loading && (
         <>
-          {/* Navigatsiya tugmalari */}
           <button
             onClick={() => instanceRef.current?.prev()}
             className="absolute top-1/2 left-[-10px] transform -translate-y-1/2 bg-white shadow p-2 rounded-full hover:bg-gray-100 z-10"
@@ -100,7 +99,6 @@ const UserCarousel = () => {
             <ChevronRight />
           </button>
 
-          {/* Indikatorlar */}
           <div className="flex justify-center mt-4 space-x-2">
             {users.map((_, idx) => (
               <button
